@@ -407,139 +407,29 @@
                     <!--Portfolio Tab / Active Tab-->
                     <div class="p-tab active-tab" id="p-tab-1">
                         <div class="project-carousel owl-theme owl-carousel">
-							
+							{% for course in courses %}
 							<!-- Institute Block Two -->
 							<div class="institute-block-two">
 								<div class="inner-box">
 									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-1.jpg" alt="" /></a>
+										<a href="{{course.image.url}}"><img src="{{course.image.url}}" alt="" /></a>
 									</div>
 									<div class="lower-content">
 										<div class="clearfix">
 											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">User  Research</a></h4>
+												<h4><a href="#">{{course.title}}</a></h4>
 											</div>
 											<div class="pull-right">
-												<div class="price">$140</div>
+												<div class="price">{{course.price}}c</div>
 											</div>
 										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
+										<div class="text">{{course.description|truncatewords:12|safe}}</div>
 										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
 									</div>
 								</div>
 							</div>
 							<!-- Institute Block Two -->
-							
-							<!-- Institute Block Two -->
-							<div class="institute-block-two">
-								<div class="inner-box">
-									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-2.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<div class="clearfix">
-											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">UX Management</a></h4>
-											</div>
-											<div class="pull-right">
-												<div class="price">$140</div>
-											</div>
-										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
-									</div>
-								</div>
-							</div>
-							<!-- Institute Block Two -->
-							
-							<!-- Institute Block Two -->
-							<div class="institute-block-two">
-								<div class="inner-box">
-									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-3.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<div class="clearfix">
-											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">UI/ UX Design</a></h4>
-											</div>
-											<div class="pull-right">
-												<div class="price">$140</div>
-											</div>
-										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
-									</div>
-								</div>
-							</div>
-							<!-- Institute Block Two -->
-							
-							<!-- Institute Block Two -->
-							<div class="institute-block-two">
-								<div class="inner-box">
-									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-1.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<div class="clearfix">
-											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">User  Research</a></h4>
-											</div>
-											<div class="pull-right">
-												<div class="price">$140</div>
-											</div>
-										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
-									</div>
-								</div>
-							</div>
-							<!-- Institute Block Two -->
-							
-							<!-- Institute Block Two -->
-							<div class="institute-block-two">
-								<div class="inner-box">
-									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-2.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<div class="clearfix">
-											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">UX Management</a></h4>
-											</div>
-											<div class="pull-right">
-												<div class="price">$140</div>
-											</div>
-										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
-									</div>
-								</div>
-							</div>
-							<!-- Institute Block Two -->
-							
-							<!-- Institute Block Two -->
-							<div class="institute-block-two">
-								<div class="inner-box">
-									<div class="image">
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html"><img src="images/resource/institute-3.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<div class="clearfix">
-											<div class="pull-left">
-												<h4><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html">UI/ UX Design</a></h4>
-											</div>
-											<div class="pull-right">
-												<div class="price">$140</div>
-											</div>
-										</div>
-										<div class="text">Replenish him third creature and meat of the blessed void a fruit</div>
-										<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/books-detail.html" class="theme-btn btn-style-seven"><span class="txt">Enroll Now</span></a>
-									</div>
-								</div>
-							</div>
-							<!-- Institute Block Two -->
-							
+							{% endfor %}
 						</div>
 					</div>
 					
