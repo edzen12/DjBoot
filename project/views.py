@@ -18,6 +18,10 @@ def books(request):
     return render(request, 'pages/books.html',context ) 
 
 
+def courses(request):  
+    return render(request, 'pages/courses.html' ) 
+
+
 def blog(request):  
     return render(request, 'pages/blog.html' ) 
 

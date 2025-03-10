@@ -53,6 +53,9 @@ class Course(models.Model):
 
 class SocialLinks(models.Model):
     title = models.CharField(max_length=150, verbose_name="Название соцсети")
+    instructor = models.ForeignKey(
+        'Instructors', models.CASCADE, related_name='social_links', 
+        null=True, blank=True)
     link = models.CharField(max_length=255, verbose_name="ссылка")
     image = models.CharField(max_length=255, verbose_name="ссылка на лого")
 
