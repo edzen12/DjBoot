@@ -36,6 +36,8 @@ class Course(models.Model):
     title = models.CharField(max_length=150, verbose_name="Название")
     image = models.ImageField(upload_to='images/', verbose_name="Фото")
     price = models.DecimalField(verbose_name="цена", decimal_places=2, max_digits=8)
+    instructors = models.ManyToManyField(
+        'Instructors', null=True, blank=True, verbose_name="Инструктор")
     count_lections = models.CharField(
         help_text="12 лекции", max_length=100, verbose_name="Количество лекции")
     hours = models.CharField(verbose_name="Сколько часов", max_length=20)
