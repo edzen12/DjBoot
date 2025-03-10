@@ -18,9 +18,10 @@ class Books(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="категория")
     author = models.CharField(max_length=100, verbose_name="Имя Автора")
+    image = models.CharField(max_length=255, verbose_name="Фото", help_text='вставьте ссылку', blank=True, null=True)
     desc = models.TextField(verbose_name="Описание")
-    Page_Count = models.CharField(max_length=100, verbose_name="Название", blank=True, null=True)
-    Word_Count = models.CharField(max_length=100,    verbose_name="Название", blank=True, null=True)
+    Page_Count = models.CharField(max_length=100, verbose_name="количество страниц", blank=True, null=True)
+    Word_Count = models.CharField(max_length=100,    verbose_name="год", blank=True, null=True)
     slug = models.SlugField(unique=True)
 
     def __str__(self):

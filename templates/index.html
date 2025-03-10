@@ -1,34 +1,8 @@
-<!DOCTYPE html>
+
+{% extends "base.html" %}
+
 {% load static %}
-<html>
-<head>
-<meta charset="utf-8">
-<title>Bootcamp HTML Template | Homepage Three</title>
-<!-- Stylesheets -->
-<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-<link href="{% static 'css/main.css' %}" rel="stylesheet">
-<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
-
-<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
-<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-</head>
-
-<body>
-
-<div class="page-wrapper">
- 	
-    <!-- Preloader -->
-    {% comment %} <div class="preloader"></div> {% endcomment %}
- 	
+{% block content %}
     <!-- Main Header-->
     <header class="main-header header-style-three">
 		
@@ -38,7 +12,7 @@
             	<div class="clearfix">
                 	
                 	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/index.html"><img src="images/logo-4.png" alt="" title="Bootcamp"></a></div>
+                    	<div class="logo"><a href="{% url "homepage" %}"><img src="{% static 'images/logo-4.png' %}" alt="" title="Bootcamp"></a></div>
                     </div>
                    	
                    	<div class="nav-outer clearfix">
@@ -56,21 +30,10 @@
 
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
-									<li class="current"><a href="index-3.html#">Home</a></li>  
-									<li class="dropdown"><a href="index-3.html#">Books</a>
-                                        <ul>
-                                            <li><a href="books.html">Books</a></li>
-                                            <li><a href="books-detail.html">Book Detail</a></li>
-                                        </ul>
-                                    </li> 
-									<li class="dropdown"><a href="index-3.html#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-detail.html">Blog Detail</a></li>
-											<li><a href="error.html">Not Found / 404</a></li>
-                                        </ul>
-                                    </li>
-									<li><a href="contact.html">Contact Us</a></li>
+									<li class="current"><a href="{% url "homepage" %}">Главная</a></li>  
+									<li class="dropdown"><a href="{% url "books" %}">Книги</a></li> 
+									<li class="dropdown"><a href="{% url "blog" %}">Блог</a> </li>
+									<li><a href="{% url "contact" %}">Контакты</a></li>
 								</ul>
 							</div>
 							
@@ -118,206 +81,107 @@
 	<!-- Slider Section Two -->
     <section class="slider-section-two">
 		<!-- Pattern Layer -->
-		<div class="pattern-layer" style="background-image:url(images/main-slider/pattern-layer-1.png)"></div>
-		<div class="pattern-layer-two" style="background-image:url(images/main-slider/pattern-layer-2.png)"></div>
+		<div class="pattern-layer" style="background-image:url('{% static 'images/main-slider/pattern-layer-1.png' %}')"></div>
+		<div class="pattern-layer-two" style="background-image:url('{% static 'images/main-slider/pattern-layer-2.png' %}')"></div>
 		<div class="main-slider-carousel owl-carousel owl-theme owl-loaded owl-drag">
-            
-            
-			
-			
-			
-			
-			
-		<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-5728px, 0px, 0px); transition: 0.5s; width: 10024px;"><div class="owl-item cloned" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
+			<div class="owl-stage-outer">
+				<div class="owl-stage" style="transform: translate3d(-2864px, 0px, 0px); transition: all; width: 10024px;">
+					<div class="owl-item cloned" style="width: 1432px;">
+						<div class="slide">
+							<div class="auto-container">
+								<div class="row clearfix">
+									<!-- Content Column -->
+									<div class="content-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<h1>To keep a customer demands as much skill as to win one.</h1>
+											<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
+											<div class="btns-box">
+												<a href="course.html" class="theme-btn btn-style-four">
+													<span class="txt">Get Stared</span>
+												</a>
+												<a href="course.html" class="theme-btn btn-style-five">
+													<span class="txt">All Courses</span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- Image Column -->
+									<div class="image-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<div class="image">
+												<img src="{% static 'images/main-slider/content-image-2.png' %}" alt="">
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
 					</div>
-				</div>
-			</div></div><div class="owl-item cloned" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
+					<div class="owl-item cloned" style="width: 1432px;">
+						<div class="slide">
+							<div class="auto-container">
+								<div class="row clearfix">
+									<!-- Content Column -->
+									<div class="content-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<h1>To keep a customer demands as much skill as to win one.</h1>
+											<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
+											<div class="btns-box">
+												<a href="course.html" class="theme-btn btn-style-four">
+													<span class="txt">Get Stared</span>
+												</a>
+												<a href="course.html" class="theme-btn btn-style-five">
+													<span class="txt">All Courses</span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- Image Column -->
+									<div class="image-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<div class="image">
+												<img src="{% static 'images/main-slider/content-image-2.png' %}" alt="">
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
 					</div>
+					<div class="owl-item active" style="width: 1432px;">
+						<div class="slide">
+							<div class="auto-container">
+								<div class="row clearfix">
+									<!-- Content Column -->
+									<div class="content-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<h1>To keep a customer demands as much skill as to win one.</h1>
+											<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
+											<div class="btns-box">
+												<a href="course.html" class="theme-btn btn-style-four">
+													<span class="txt">Get Stared</span>
+												</a>
+												<a href="course.html" class="theme-btn btn-style-five">
+													<span class="txt">All Courses</span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- Image Column -->
+									<div class="image-column col-lg-6 col-md-12 col-sm-12">
+										<div class="inner-column">
+											<div class="image">
+												<img src="{% static 'images/main-slider/content-image-2.png' %}" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
 				</div>
-			</div></div><div class="owl-item" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div></div><div class="owl-item" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div></div><div class="owl-item active" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div></div><div class="owl-item cloned" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div></div><div class="owl-item cloned" style="width: 1432px;"><div class="slide">
-				<div class="auto-container">
-					<div class="row clearfix">
-								
-						<!-- Content Column -->
-						<div class="content-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<h1>To keep a customer demands as much skill as to win one.</h1>
-								<div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomisedable.</div>
-								<div class="btns-box">
-									<a href="course.html" class="theme-btn btn-style-four"><span class="txt">Get Stared</span></a>
-									<a href="course.html" class="theme-btn btn-style-five"><span class="txt">All Courses</span></a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Image Column -->
-						<div class="image-column col-lg-6 col-md-12 col-sm-12">
-							<div class="inner-column">
-								<div class="image">
-									<img src="images/main-slider/content-image-2.png" alt="">
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div></div></div></div><div class="owl-nav"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots"><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot active"><span></span></div></div></div>
+			</div>  
+		</div>
 	</section>
 	<!-- End Banner Section -->
 	
@@ -351,7 +215,7 @@
 				<div class="image-column col-lg-6 col-md-12 col-sm-12">
 					<div class="inner-column">
 						<div class="image titlt" data-tilt data-tilt-max="4">
-							<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/images/resource/education-2.png" data-fancybox="education-2" data-caption="" class=""><img src="images/resource/education-2.jpg" alt="" /></a>
+							<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/images/resource/education-2.png" data-fancybox="education-2" data-caption="" class=""><img src="{% static 'images/resource/education-2.jpg' %}" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -1316,142 +1180,4 @@
 			
 		</div>
 	</section>
-	
-	<!--Main Footer-->
-    <footer class="main-footer style-two">
-		
-		<!-- Pattern Layer Four -->
-		<div class="pattern-layer-four" style="background-image:url(images/icons/icon-7.png)"></div>
-		<div class="pattern-layer-five" style="background-image:url(images/icons/icon-8.png)"></div>
-		<div class="pattern-layer-six" style="background-image:url(images/icons/icon-9.png)"></div>
-		<div class="auto-container">
-		
-        	<!-- Widgets Section -->
-            <div class="widgets-section">
-            	<div class="row clearfix">
-                	
-                    <!-- Big Column -->
-                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="row clearfix">
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
-                                <div class="footer-widget logo-widget">
-									<div class="logo">
-                                    	<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/index.html"><img src="images/footer-logo-2.png" alt="" /></a>
-                                    </div>
-									<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater.</div>
-									<div class="social-box">
-										<a href="index-3.html#" class="fa fa-facebook"></a>
-										<a href="index-3.html#" class="fa fa-instagram"></a>
-										<a href="index-3.html#" class="fa fa-twitter"></a>
-										<a href="index-3.html#" class="fa fa-google"></a>
-										<a href="index-3.html#" class="fa fa-pinterest-p"></a>
-									</div>
-									
-								</div>
-							</div>
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
-                                <div class="footer-widget links-widget">
-									<h4>About Us</h4>
-									<ul class="links-widget">
-										<li><a href="index-3.html#">Afficiates</a></li>
-										<li><a href="index-3.html#">Partners</a></li>
-										<li><a href="index-3.html#">Reviews</a></li>
-										<li><a href="index-3.html#">Blogs</a></li>
-										<li><a href="index-3.html#">Newsletter</a></li>
-									</ul>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					
-					<!-- Big Column -->
-                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="row clearfix">
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                <div class="footer-widget links-widget">
-									<h4>Resource</h4>
-									<ul class="links-widget">
-										<li><a href="index-3.html#">Privacy Policy</a></li>
-										<li><a href="index-3.html#">Support Area</a></li>
-										<li><a href="index-3.html#">Documentations</a></li>
-										<li><a href="index-3.html#">How it works</a></li>
-										<li><a href="index-3.html#">Terms of Policy</a></li>
-									</ul>
-								</div>
-							</div>
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                <div class="footer-widget links-widget">
-									<h4>Quick Links</h4>
-									<ul class="links-widget">
-										<li><a href="index-3.html#">home</a></li>
-										<li><a href="index-3.html#">About us</a></li>
-										<li><a href="index-3.html#">Features</a></li>
-										<li><a href="index-3.html#">Pricing</a></li>
-										<li><a href="index-3.html#">Contact</a></li>
-									</ul>
-								</div>
-							</div>
-						
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			
-			<!-- Footer Bottom -->
-			<div class="footer-bottom text-center">
-				<div class="copyright">Copyright &copy; 2020 AuburnForest</div>
-			</div>
-			
-		</div>
-	</footer>
-	
-</div>
-<!--End pagewrapper-->
-
-<!-- Scroll To Top -->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-circle-up"></span></div>
-
-<!-- Header Search -->
-<div class="search-popup">
-	<button class="close-search style-two"><span class="flaticon-multiply"></span></button>
-	<button class="close-search"><span class="flaticon-up-arrow"></span></button>
-	<form method="post" action="https://demo.auburnforest.com/html/bootcamp/bootcamp/blog.html">
-		<div class="form-group">
-			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</div>
-	</form>
-</div>
-<!-- End Header Search -->
-
-<script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/jquery.scrollTo.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script src="{% static 'js/jquery.fancybox.js' %}"></script>
-<script src="{% static 'js/appear.js' %}"></script>
-<script src="{% static 'js/swiper.min.js' %}"></script>
-<script src="{% static 'js/element-in-view.js' %}"></script>
-<script src="{% static 'js/jquery.paroller.min.js' %}"></script>
-<script src="{% static 'js/parallax.min.js' %}"></script>
-<script src="{% static 'js/tilt.jquery.min.js' %}"></script>
-<!--Master Slider-->
-<script src="{% static 'js/jquery.easing.min.js' %}"></script>
-<script src="{% static 'js/owl.js' %}"></script>
-<script src="{% static 'js/wow.js' %}"></script>
-<script src="{% static 'js/jquery-ui.js' %}"></script>
-<script src="{% static 'js/script.js' %}"></script>
-
-</body>
-</html>
+{% endblock content %}

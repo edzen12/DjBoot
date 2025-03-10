@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bootcamp HTML Template | Homepage Three</title>
+<!-- Stylesheets -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+ 
+<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    {% comment %} <div class="preloader"></div> {% endcomment %}
+ 	
+
+    {% block content %}
+    
+    {% endblock content %}
+
+
+	<!--Main Footer-->
+    <footer class="main-footer style-two">
+		
+		<!-- Pattern Layer Four -->
+		<div class="pattern-layer-four" style="background-image:url(images/icons/icon-7.png)"></div>
+		<div class="pattern-layer-five" style="background-image:url(images/icons/icon-8.png)"></div>
+		<div class="pattern-layer-six" style="background-image:url(images/icons/icon-9.png)"></div>
+		<div class="auto-container">
+		
+        	<!-- Widgets Section -->
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                	
+                    <!-- Big Column -->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                <div class="footer-widget logo-widget">
+									<div class="logo">
+                                    	<a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/index.html"><img src="images/footer-logo-2.png" alt="" /></a>
+                                    </div>
+									<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater.</div>
+									<div class="social-box">
+										<a href="index-3.html#" class="fa fa-facebook"></a>
+										<a href="index-3.html#" class="fa fa-instagram"></a>
+										<a href="index-3.html#" class="fa fa-twitter"></a>
+										<a href="index-3.html#" class="fa fa-google"></a>
+										<a href="index-3.html#" class="fa fa-pinterest-p"></a>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+									<h4>About Us</h4>
+									<ul class="links-widget">
+										<li><a href="index-3.html#">Afficiates</a></li>
+										<li><a href="index-3.html#">Partners</a></li>
+										<li><a href="index-3.html#">Reviews</a></li>
+										<li><a href="index-3.html#">Blogs</a></li>
+										<li><a href="index-3.html#">Newsletter</a></li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<!-- Big Column -->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+									<h4>Resource</h4>
+									<ul class="links-widget">
+										<li><a href="index-3.html#">Privacy Policy</a></li>
+										<li><a href="index-3.html#">Support Area</a></li>
+										<li><a href="index-3.html#">Documentations</a></li>
+										<li><a href="index-3.html#">How it works</a></li>
+										<li><a href="index-3.html#">Terms of Policy</a></li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+									<h4>Quick Links</h4>
+									<ul class="links-widget">
+										<li><a href="index-3.html#">home</a></li>
+										<li><a href="index-3.html#">About us</a></li>
+										<li><a href="index-3.html#">Features</a></li>
+										<li><a href="index-3.html#">Pricing</a></li>
+										<li><a href="index-3.html#">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!-- Footer Bottom -->
+			<div class="footer-bottom text-center">
+				<div class="copyright">Copyright &copy; 2020 AuburnForest</div>
+			</div>
+			
+		</div>
+	</footer>
+	
+</div>
+<!--End pagewrapper-->
+
+<!-- Scroll To Top -->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-circle-up"></span></div>
+
+<!-- Header Search -->
+<div class="search-popup">
+	<button class="close-search style-two"><span class="flaticon-multiply"></span></button>
+	<button class="close-search"><span class="flaticon-up-arrow"></span></button>
+	<form method="post" action="https://demo.auburnforest.com/html/bootcamp/bootcamp/blog.html">
+		<div class="form-group">
+			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</div>
+	</form>
+</div>
+<!-- End Header Search -->
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollTo.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/swiper.min.js' %}"></script>
+<script src="{% static 'js/element-in-view.js' %}"></script>
+<script src="{% static 'js/jquery.paroller.min.js' %}"></script>
+<script src="{% static 'js/parallax.min.js' %}"></script>
+<script src="{% static 'js/tilt.jquery.min.js' %}"></script>
+<!--Master Slider-->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
