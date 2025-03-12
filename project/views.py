@@ -18,8 +18,12 @@ def books(request):
     return render(request, 'pages/books.html',context ) 
 
 
-def courses(request):  
-    return render(request, 'pages/courses.html' ) 
+def courses(request): 
+    courses = Course.objects.all()
+    context = {
+        'courses':courses,
+    } 
+    return render(request, 'pages/courses.html', context ) 
 
 
 def blog(request):  
