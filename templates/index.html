@@ -12,7 +12,11 @@
             	<div class="clearfix">
                 	
                 	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="{% url "homepage" %}"><img src="{% static 'images/logo-4.png' %}" alt="" title="Bootcamp"></a></div>
+                    	<div class="logo">
+							<a href="{% url "homepage" %}">
+								<img src="{{settings.logo.url}}" width='60px' alt="" title="{{settings.name}}">
+							</a>
+						</div>
                     </div>
                    	
                    	<div class="nav-outer clearfix">

@@ -1,13 +1,33 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor.fields import RichTextField
+
+
+class Settings(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название сайта")
+    logo = models.ImageField(upload_to='images', verbose_name="Лого")
+    phone1 = models.CharField(
+        max_length=20, verbose_name="Телефон",
+        help_text="Вы можете начать номер телефона с +996 (700) 700 700")
+    email = models.CharField(max_length=100, verbose_name="E-mail")
+
+    def __str__(self):
+        return f"{self.name} {self.phone1}"
+
+    class Meta:
+        verbose_name = 'Настройка'
+        verbose_name_plural = 'Настройки'
 
 
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название")
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("category_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Категории книг'
@@ -22,10 +42,13 @@ class Books(models.Model):
     desc = models.TextField(verbose_name="Описание")
     Page_Count = models.CharField(max_length=100, verbose_name="количество страниц", blank=True, null=True)
     Word_Count = models.CharField(max_length=100,    verbose_name="год", blank=True, null=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("book_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'книга'
@@ -42,9 +65,13 @@ class Course(models.Model):
         help_text="12 лекции", max_length=100, verbose_name="Количество лекции")
     hours = models.CharField(verbose_name="Сколько часов", max_length=20)
     description = RichTextField()
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("course_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Курсы'
@@ -71,6 +98,7 @@ class Instructors(models.Model):
     image = models.ImageField(upload_to='images/', verbose_name="Фото ава")
     position = models.CharField(max_length=100, verbose_name="Должность")
     description = RichTextField()
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} - {self.position}"

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from project.models import (Category, Books, Course, 
+from project.models import (Category, Books, Course, Settings,
                             SocialLinks, Instructors, Reviews)
 
 
@@ -15,6 +15,10 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug' :('title',)}
 
 
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ['title', 'slug']
+    prepopulated_fields = {'slug' :('title',)}
+
 class SocialLinksInline(admin.TabularInline):
     model = SocialLinks
     extra = 1
@@ -26,7 +30,8 @@ class InstructorsAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Books, BooksAdmin)
-admin.site.register(Course)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Settings)
 # admin.site.register(SocialLinks)
 admin.site.register(Instructors, InstructorsAdmin)
 admin.site.register(Reviews)
