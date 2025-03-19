@@ -60,7 +60,7 @@ class Course(models.Model):
     image = models.ImageField(upload_to='images/', verbose_name="Фото")
     price = models.DecimalField(verbose_name="цена", decimal_places=2, max_digits=8)
     instructors = models.ManyToManyField(
-        'Instructors', null=True, blank=True, verbose_name="Инструктор")
+        'Instructors', blank=True, verbose_name="Инструктор")
     count_lections = models.CharField(
         help_text="12 лекции", max_length=100, verbose_name="Количество лекции")
     hours = models.CharField(verbose_name="Сколько часов", max_length=20)
@@ -119,3 +119,23 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = 'Отзывы'
         verbose_name_plural = 'Отзывы'
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=150, verbose_name="Название")
+    image = models.ImageField(upload_to='images/', verbose_name="Фото")   
+    description = RichTextField()
+    author = models.CharField(verbose_name="Автор", max_length=100)
+    date_post = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("blog_detail", kwargs={"slug": self.slug})
+
+    class Meta:
+        verbose_name = 'Блог'
+        verbose_name_plural = 'Блог'
+

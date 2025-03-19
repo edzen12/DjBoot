@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from project.models import Course, Books, Settings
+from project.models import Course, Books, Settings, Blog
 
 
 def index(request):
@@ -44,10 +44,24 @@ def courses(request):
 
 def blog(request):  
     settings = Settings.objects.latest('id')
+    blogs = Blog.objects.all()
     context = { 
         'settings':settings,
+        'blogs':blogs,
     } 
     return render(request, 'pages/blog.html',context) 
+
+
+def blog_detail(request, slug):
+    settings = Settings.objects.latest('id')
+    blogs_latest = Blog.objects.all()[:3]
+    blog = Blog.objects.get(slug=slug) 
+    context = {
+        'settings':settings,
+        'blog':blog, 
+        'blogs_latest':blogs_latest, 
+    }
+    return render(request, 'pages/blog-detail.html', context)
 
 
 def contact(request):  

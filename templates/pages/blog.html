@@ -43,14 +43,9 @@
 						<div class="options-view">
 							<div class="clearfix">
 								<div class="pull-left">
-									<h3>Featured Posts</h3>
+									<h3>Свежие посты</h3>
 								</div>
-								<div class="pull-right clearfix">
-									<!-- List View -->
-									<ul class="list-view">
-										<li class="active"><a href="#"><span class="icon flaticon-grid"></span></a></li>
-										<li><a href="#"><span class="icon flaticon-list-1"></span></a></li>
-									</ul>
+								<div class="pull-right clearfix"> 
 									
 									<!-- Type Form -->
 									<div class="type-form">
@@ -59,8 +54,8 @@
 											<!-- Form Group -->
 											<div class="form-group">
 												<select class="custom-select-box">
-													<option>Newest</option>
-													<option>Old</option>
+													<option>Новые</option>
+													<option>Старые</option>
 												</select>
 											</div>
 											
@@ -72,196 +67,30 @@
 						</div>
 						
 						<div class="row clearfix">
-							
+							{% for blog in blogs %}
 							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
+							<div class="cource-block-two col-lg-4 col-md-12 col-sm-12">
 								<div class="inner-box">
 									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-6.jpg" alt="" /></a>
+										<a href="{{blog.get_absolute_url}}"><img src="{{blog.image.url}}" alt="" /></a>
 									</div>
 									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
+										<h5><a href="{{blog.get_absolute_url}}">
+											{{blog.title}}
+										</a></h5>
+										<div class="text">{{blog.description|truncatewords:10|safe}}</div>
 										<div class="clearfix">
 											<div class="pull-left">
-												<div class="students">By David Smith</div>
+												<div class="students">{{blog.author}}</div>
 											</div>
 											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
+												<div class="hours">{{blog.date_post}}</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-7.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-8.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-9.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-10.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-11.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-12.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-13.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Cource Block Two -->
-							<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<div class="image">
-										<a href="blog-detail.html"><img src="images/resource/course-28.jpg" alt="" /></a>
-									</div>
-									<div class="lower-content">
-										<h5><a href="blog-detail.html">10 amazing web of demos Developers</a></h5>
-										<div class="text">And meat blessed void a fruit gathered waters.</div>
-										<div class="clearfix">
-											<div class="pull-left">
-												<div class="students">By David Smith</div>
-											</div>
-											<div class="pull-right">
-												<div class="hours">11 Jan 20</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
+							{% endfor %}
 						</div>
 						
 						<!-- Post Share Options -->
@@ -282,168 +111,12 @@
 						
 					</div>
 					
-				</div>
-				
-				<!-- Sidebar Side -->
-                <div class="sidebar-side style-two col-lg-3 col-md-12 col-sm-12">
-					<div class="sidebar-inner sticky-top">
-						<aside class="sidebar ">
-							
-							<!-- Popular Posts -->
-							<div class="sidebar-widget popular-posts">
-							
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h5>Recent Posts</h5>
-								</div>
-								
-								<div class="widget-content">
-									<article class="post">
-										<div class="post-inner">
-											<figure class="post-thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></figure>
-											<div class="text"><a href="blog-detail.html">Writing a Simple App</a></div>
-											<div class="post-info">By Steve Krug</div>
-										</div>
-									</article>
-
-									<article class="post">
-										<div class="post-inner">
-											<figure class="post-thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></figure>
-											<div class="text"><a href="blog-detail.html">Writing a Simple App</a></div>
-											<div class="post-info">By Steve Krug</div>
-										</div>
-									</article>
-									
-									<article class="post">
-										<div class="post-inner">
-											<figure class="post-thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-3.jpg" alt=""></a></figure>
-											<div class="text"><a href="blog-detail.html">Writing a Simple App</a></div>
-											<div class="post-info">By Steve Krug</div>
-										</div>
-									</article>
-								</div>
-							</div>
-							
-							<!-- Popular Tags -->
-							<div class="sidebar-widget popular-tags">
-							
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h5>Tags</h5>
-								</div>
-								
-								<div class="widget-content">
-									<a href="#">#Webdesign</a>
-									<a href="#">#Mobileapp</a>
-									<a href="#">#Design</a>
-									<a href="#">#Hack</a>
-									<a href="#">#Webdesign</a>
-									<a href="#">#Hack</a>
-									<a href="#">#Design</a>
-									<a href="#">#Hack</a>
-								</div>
-							</div>
-							
-						</aside>
-					</div>
-				</div>
+				</div> 
 				
 			</div>
 			
 		</div>
-	</div>
-	
-	<!-- Popular Courses -->
-	<section class="popular-courses-section">
-		<div class="auto-container">
-			<div class="sec-title">
-				<h2>Most Popular Posts</h2>
-			</div>
-			
-			<div class="row clearfix">
-				
-				<!-- Cource Block Two -->
-				<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="blog-detail.html"><img src="images/resource/course-15.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<h5><a href="blog-detail.html">How to Create and Use Bash Scripts</a></h5>
-							<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-							<div class="clearfix">
-								<div class="pull-left">
-									<div class="students">12 Lecturer</div>
-								</div>
-								<div class="pull-right">
-									<div class="hours">54 Hours</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Cource Block Two -->
-				<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="blog-detail.html"><img src="images/resource/course-16.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<h5><a href="blog-detail.html">How to Create and Use Bash Scripts</a></h5>
-							<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-							<div class="clearfix">
-								<div class="pull-left">
-									<div class="students">12 Lecturer</div>
-								</div>
-								<div class="pull-right">
-									<div class="hours">54 Hours</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Cource Block Two -->
-				<div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="blog-detail.html"><img src="images/resource/course-17.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<h5><a href="blog-detail.html">How to Create and Use Bash Scripts</a></h5>
-							<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-							<div class="clearfix">
-								<div class="pull-left">
-									<div class="students">12 Lecturer</div>
-								</div>
-								<div class="pull-right">
-									<div class="hours">54 Hours</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-	</section>
-	<!-- End Popular Courses -->
-	
-	<!-- Call To Action Section Two -->
-	<section class="call-to-action-section-two" style="background-image: url(images/background/3.png)">
-		<div class="auto-container">
-			<div class="content">
-				<h2>Ready to get started?</h2>
-				<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
-				<div class="buttons-box">
-					<a href="course.html" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
-					<a href="course.html" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Call To Action Section Two -->
+	</div> 
+	 
 	
 	{% endblock content %}
