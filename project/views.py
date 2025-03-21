@@ -56,10 +56,12 @@ def blog_detail(request, slug):
     settings = Settings.objects.latest('id')
     blogs_latest = Blog.objects.all()[:3]
     blog = Blog.objects.get(slug=slug) 
+    reviews = blog.reviews.all() # получаемые отывы для конкретного поста
     context = {
         'settings':settings,
         'blog':blog, 
         'blogs_latest':blogs_latest, 
+        'reviews': reviews, # передача в шаблон
     }
     return render(request, 'pages/blog-detail.html', context)
 

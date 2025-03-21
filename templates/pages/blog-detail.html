@@ -102,14 +102,16 @@
 								<h4>Recent Comments</h4>
 							</div>
 							
+							{% for rev in reviews %}
 							<div class="comment-box">
 								<div class="comment">
-									<div class="author-thumb"><img src="images/resource/author-12.jpg" alt=""></div>
-									<div class="comment-info clearfix"><strong>Anna Sthesia</strong><div class="comment-time">June 28, 2019</div></div>
-									<div class="text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+									<div class="author-thumb"><img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt=""></div>
+									<div class="comment-info clearfix"><strong>{{rev.name}} </strong><div class="comment-time">June 28, 2019</div></div>
+									<div class="text">{{rev.desc}}</div>
 									<a class="theme-btn reply-btn" href="#"> Reply</a>
 								</div>
 							</div>
+							{% endfor %}
 							
 							<div class="comment-box reply-comment">
 								<div class="comment">
@@ -120,39 +122,31 @@
 								</div>
 							</div>
 							
-							<div class="comment-box">
-								<div class="comment">
-									<div class="author-thumb"><img src="images/resource/author-14.jpg" alt=""></div>
-									<div class="comment-info clearfix"><strong>Mouna Sthesia </strong><div class="comment-time">June 28, 2019</div></div>
-									<div class="text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
-									<a class="theme-btn reply-btn" href="#"> Reply</a>
-								</div>
-							</div>
 							
 						</div>
 						
 						<!-- Comment Form -->
 						<div class="comment-form">
-							<div class="group-title"><h4>Leave Comment</h4></div>
+							<div class="group-title"><h4>Напишите комментарии</h4></div>
 							
 							<!--Comment Form-->
 							<form method="post" action="blog.html">
 								<div class="row clearfix">
 									
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="text" name="username" placeholder="Full Name*" required>
+										<input type="text" name="username" placeholder="ФИО*" required>
 									</div>
 									
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="email" name="email" placeholder="Email Address*" required>
+										<input type="email" name="email" placeholder="Email Адрес*" required>
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<textarea class="" name="message" placeholder="Write your comment..."></textarea>
+										<textarea class="" name="message" placeholder="Напишите свой комментарий..."></textarea>
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="txt">Submit Your Comment <i class="fa fa-angle-right"></i></span></button>
+										<button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="txt">Отправить свой комментарий <i class="fa fa-angle-right"></i></span></button>
 									</div>
 									
 								</div>

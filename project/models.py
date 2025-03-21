@@ -9,7 +9,12 @@ class Settings(models.Model):
     phone1 = models.CharField(
         max_length=20, verbose_name="Телефон",
         help_text="Вы можете начать номер телефона с +996 (700) 700 700")
+    phone2 = models.CharField(
+        null=True, max_length=20, verbose_name="Телефон", blank=True,
+        help_text="Вы можете начать номер телефона с +996 (500) 700 700")
     email = models.CharField(max_length=100, verbose_name="E-mail")
+    email2 = models.CharField(max_length=100, verbose_name="E-mail", blank=True, null=True,)
+    address = models.CharField(max_length=255, verbose_name="Адрес",null=True)
 
     def __str__(self):
         return f"{self.name} {self.phone1}"
@@ -108,7 +113,11 @@ class Instructors(models.Model):
         verbose_name_plural = 'Инструкторы'
 
 
-class Reviews(models.Model):
+class Reviews(models.Model):# Отзывы
+    blog = models.ForeignKey(
+        'Blog', on_delete=models.CASCADE, 
+        related_name='reviews', verbose_name="Блог", null=True, blank=True
+    )
     name = models.CharField(max_length=100, verbose_name="фио")
     desc = models.TextField(verbose_name="Описание")
     rating = models.IntegerField(default=1, verbose_name="Рейтинг")
