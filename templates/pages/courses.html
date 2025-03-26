@@ -38,12 +38,12 @@
                                 <!--Tab / Active Tab-->
                                 <div class="tab active-tab" id="prod-html">
                                     <div class="content">
-                                        <div class="row clearfix"> {% for book in courses %}
+                                        <div class="row clearfix"> {% for course in courses %}
                                             <!-- Book Block -->
                                             <div class="book-block col-lg-3 col-md-4 col-sm-12">
                                                 <div class="inner-box">
                                                     <figure class="image-box">
-                                                        <img src="{{book.image.url}}" alt="">
+                                                        <img src="{{course.image.url}}" alt="">
                                                         <!-- Overlay Box -->
                                                         <div class="overlay-box">
                                                             <div class="overlay-inner">
@@ -51,7 +51,7 @@
                                                                     <a href="books-detail.html" class="link">
                                                                         <span class="icon fa fa-link"></span>
                                                                     </a>
-                                                                    <a href="{{book.image.url}}" data-fancybox="books" data-caption="" class="link">
+                                                                    <a href="{{course.image.url}}" data-fancybox="books" data-caption="" class="link">
                                                                         <span class="icon flaticon-full-screen"></span>
                                                                     </a>
                                                                 </div>
@@ -60,7 +60,7 @@
                                                     </figure>
                                                     <div class="lower-box">
                                                         <h6>
-                                                            <a href="books-detail.html">{{book.title}}</a>
+                                                            <a href="{{course.get_absolute_url}}">{{course.title}}</a>
                                                         </h6>
                                                     </div>
                                                 </div>

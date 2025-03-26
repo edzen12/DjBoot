@@ -1,8 +1,6 @@
 from django.contrib import admin
-
 from project.models import (Category, Books, Course, Settings, Blog,
                             SocialLinks, Instructors, Reviews)
-
 
 
 class BooksAdmin(admin.ModelAdmin):
@@ -32,6 +30,9 @@ class InstructorsAdmin(admin.ModelAdmin):
     inlines = [SocialLinksInline,]
 
 
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ['name', 'blog']
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Books, BooksAdmin)
 admin.site.register(Course, CourseAdmin)
@@ -39,4 +40,4 @@ admin.site.register(Settings)
 admin.site.register(Blog, BlogAdmin)
 # admin.site.register(SocialLinks)
 admin.site.register(Instructors, InstructorsAdmin)
-admin.site.register(Reviews)
+admin.site.register(Reviews, ReviewsAdmin)

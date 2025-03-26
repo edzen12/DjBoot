@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Settings(models.Model):
@@ -15,6 +16,7 @@ class Settings(models.Model):
     email = models.CharField(max_length=100, verbose_name="E-mail")
     email2 = models.CharField(max_length=100, verbose_name="E-mail", blank=True, null=True,)
     address = models.CharField(max_length=255, verbose_name="Адрес",null=True)
+    map = models.TextField(verbose_name="карта", null=True)
 
     def __str__(self):
         return f"{self.name} {self.phone1}"
@@ -107,6 +109,9 @@ class Instructors(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.position}"
+    
+    def get_absolute_url(self):
+        return reverse("instructors_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Инструкторы'
@@ -118,12 +123,26 @@ class Reviews(models.Model):# Отзывы
         'Blog', on_delete=models.CASCADE, 
         related_name='reviews', verbose_name="Блог", null=True, blank=True
     )
+    parent = models.ForeignKey(
+        'self', on_delete=models.CASCADE,
+        related_name='reviews', verbose_name="Блог",
+        null=True, blank=True
+    )
     name = models.CharField(max_length=100, verbose_name="фио")
+    email = models.EmailField(verbose_name="Email", null=True)
     desc = models.TextField(verbose_name="Описание")
-    rating = models.IntegerField(default=1, verbose_name="Рейтинг")
+    rating = models.IntegerField(
+        default=1, verbose_name="Рейтинг",
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Дата и время создания", null=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - ответ на {self.parent.name}" if self.parent else f"{self.name}"
+
+    def get_replies(self):
+        return self.replies.all()
 
     class Meta:
         verbose_name = 'Отзывы'

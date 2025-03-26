@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+    
+	{% include "headerPages.html" %}
+	<!-- Page Title -->
+    <section class="page-title">
+        <div class="auto-container">
+			<h1>{{course.title}}</h1> 
+			
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!-- Books Detail Section -->
+	<section class="books-detail-section">
+		<div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
+		<div class="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-2.png)"></div>
+		<div class="circle-one"></div>
+		<div class="auto-container">
+			<div class="row clearfix">
+				
+				<!-- Info Section -->
+				<div class="info-column col-lg-4 col-md-12 col-sm-12">
+					<div class="inner-column">
+                        {% for ins in instructor %}
+						<div class="card">
+                            <img src="{{ins.image.url}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ins.name}}</h5>
+                              <p class="card-text">{{ins.position}}</p>
+                              <a href="#" class="btn btn-primary">узнать больше</a>
+                            </div>
+                          </div>
+                          {% endfor %} 
+					</div>
+				</div>
+				
+				<!-- Content Section -->
+				<div class="content-column col-lg-8 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<h2>{{course.title}}</h2>
+						<div class="author">{{course.price}}</div> 
+						<p>{{course.description|safe}}</p> 
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</section>
+	<!-- End Books Page Section -->
+	
+	<!-- Call To Action Section Two -->
+	<section class="call-to-action-section-two" style="background-image: url(https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29zbW9zfGVufDB8fDB8fHww)">
+		<div class="auto-container">
+			<div class="content">
+				<h2>Готовы начать?</h2> 
+				<div class="buttons-box">
+					<a href="https://t.me/@edzen25" class="theme-btn btn-style-one"><span class="txt">Начать <i class="fa fa-angle-right"></i></span></a>
+					<a href="{% url "courses" %}" class="theme-btn btn-style-two"><span class="txt">Все курсы <i class="fa fa-angle-right"></i></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Call To Action Section Two -->
+{% endblock content %}
