@@ -1,5 +1,17 @@
-from django.shortcuts import render
-from project.models import Course, Books, Settings, Blog, Instructors
+from django.shortcuts import render, redirect
+from project.forms import ReviewForm
+from project.models import Course, Books, Settings, Blog, Instructors, Reviews
+
+
+def submit_review(request):
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('courses')
+    else:
+        form = ReviewForm()
+    return render(request, 'courses.html', {'form':form})
 
 
 def index(request):

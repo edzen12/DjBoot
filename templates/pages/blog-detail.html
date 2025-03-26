@@ -130,23 +130,23 @@
 							<div class="group-title"><h4>Напишите комментарии</h4></div>
 							
 							<!--Comment Form-->
-							<form method="post" action="blog.html">
-								<div class="row clearfix">
-									
+							<form method="post" action="{% url "submit_review" %}">
+								{% csrf_token %}
+								<div class="row clearfix"> 
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="text" name="username" placeholder="ФИО*" required>
+										{{form.name}}
 									</div>
 									
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="email" name="email" placeholder="Email Адрес*" required>
+										{{form.email}}
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<textarea class="" name="message" placeholder="Напишите свой комментарий..."></textarea>
+										{{form.desc}}
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 										<label>Рейтинг (от 1 до 5)</label>
-										
+										{{form.rating}}
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
