@@ -53,8 +53,13 @@
 							
 							<!-- Login Nav -->
 							<ul class="login-nav">
-								<li><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/login.html">Log In</a></li>
-								<li><a href="https://demo.auburnforest.com/html/bootcamp/bootcamp/register.html">Register</a></li>
+								{% if request.user.is_authenticated %}
+									<li>Привет, {{ request.user.username }}</li>
+									<li><a href="{% url 'logout' %}">Выход</a></li>
+								{% else %}
+									<li><a href="{% url 'login' %}">Вход</a></li>
+									<li><a href="{% url 'register' %}">Регистрация</a></li>
+								{% endif %}
 							</ul>
 							
 						</div>
