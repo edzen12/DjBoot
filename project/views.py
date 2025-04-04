@@ -3,9 +3,25 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
 from project.forms import ReviewForm
 from project.models import Course, Books, Settings, Blog, Instructors, Reviews
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileUpdateForm
 
 from django.contrib.auth import get_user_model
-CustomUser = get_user_model()
+User = get_user_model()
+
+
+@login_required
+def profile_view(request):
+    user = request.user
+    if request.method == "POST":
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileUpdateForm(instance=user)
+
+    return render(request, 'auth/profile.html', {'form': form})
 
 
 def submit_review(request):
@@ -26,7 +42,7 @@ def login_view(request):
         usr = authenticate(request, username=login, password=password)
         if usr is not None:
             user_login(request, usr)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('profile/')
         else:
             return render(request, 'auth/login.html', {'error': 'Неверный логин или пароль'})
     settings = Settings.objects.latest('id')
@@ -49,11 +65,11 @@ def reg_view(request):
             return render(request, 'auth/reg.html', {'error': 'Пароль должен содержать минимум 6 символов'})
 
         if password == password2:
-            CustomUser.objects.create_user(username=login, password=password)
+            User.objects.create_user(username=login, password=password)
             usr = authenticate(request, username=login, password=password)
             if usr is not None:
                 user_login(request, usr)
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect('profile/')
             else:
                 return render(request, 'auth/login.html', {'error': 'Ошибка аутентификации'})
     settings = Settings.objects.latest('id')

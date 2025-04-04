@@ -3,7 +3,8 @@ from django.contrib import admin
 from django.urls import path, include
 from project.views import (index, blog, books, contact, courses, 
                            book_detail, blog_detail, course_detail, 
-                           submit_review, login_view, reg_view, logout_view)
+                           submit_review, login_view, reg_view, 
+                           logout_view, profile_view)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -12,7 +13,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('register/', reg_view, name='register'),
     path('logout/', logout_view, name='logout'),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('profile/', profile_view, name='profile'), 
     path('', index, name='homepage'),
     path('blog/', blog, name='blog'),
     path('blog/<slug:slug>/', blog_detail, name='blog_detail'),

@@ -1,7 +1,19 @@
+from django.contrib.auth.models import AbstractUser 
 from django.db import models
 from django.urls import reverse
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.core.validators import MinValueValidator, MaxValueValidator
+
+
+class CustomUser(AbstractUser):
+    age = models.PositiveIntegerField(null=True, blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    gender_choices = [('M', 'Мужской'), ('F', 'Женский')]
+    gender = models.CharField(max_length=1, choices=gender_choices, blank=True)
+    photo = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+
+    def __str__(self):
+        return self.username
 
 
 class Settings(models.Model):
@@ -71,7 +83,7 @@ class Course(models.Model):
     count_lections = models.CharField(
         help_text="12 лекции", max_length=100, verbose_name="Количество лекции")
     hours = models.CharField(verbose_name="Сколько часов", max_length=20)
-    description = RichTextField()
+    description = CKEditor5Field()
     slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
@@ -104,7 +116,7 @@ class Instructors(models.Model):
     name = models.CharField(max_length=150, verbose_name="Имя фамилие")
     image = models.ImageField(upload_to='images/', verbose_name="Фото ава")
     position = models.CharField(max_length=100, verbose_name="Должность")
-    description = RichTextField()
+    description = CKEditor5Field()
     slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self):
@@ -152,7 +164,7 @@ class Reviews(models.Model):# Отзывы
 class Blog(models.Model):
     title = models.CharField(max_length=150, verbose_name="Название")
     image = models.ImageField(upload_to='images/', verbose_name="Фото")   
-    description = RichTextField()
+    description = CKEditor5Field()
     author = models.CharField(verbose_name="Автор", max_length=100)
     date_post = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True, null=True)

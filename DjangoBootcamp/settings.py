@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'project',
-    'ckeditor',
-    'ckeditor_uploader',
+    "django_ckeditor_5", 
 ]
 
 MIDDLEWARE = [
@@ -115,6 +114,7 @@ USE_I18N = True
 USE_TZ = True
 
 
+AUTH_USER_MODEL = 'project.CustomUser'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -126,7 +126,7 @@ STATICFILES_DIRS = [STATIC_DIR]
 MEDIA_ROOT = BASE_DIR / 'media' 
 MEDIA_URL = '/media/'
 
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_BASEPATH = "/static/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
