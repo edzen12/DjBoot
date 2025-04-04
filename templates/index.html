@@ -14,7 +14,7 @@
                 	<div class="pull-left logo-box">
                     	<div class="logo">
 							<a href="{% url "homepage" %}">
-								<img src="{{settings.logo.url}}" width='60px' alt="" title="{{settings.name}}">
+								<img src="{% if settings %}{{settings.logo.url}}{% endif %}" width='60px' alt="" title="{% if settings %}{{settings.name}}{% endif %}">
 							</a>
 						</div>
                     </div>
@@ -54,7 +54,7 @@
 							<!-- Login Nav -->
 							<ul class="login-nav">
 								{% if request.user.is_authenticated %}
-								<li><a>Привет, {{request.user.username}}</a></li>
+								<li><a href="{% url "profile" %}">Привет, {{request.user.username}}</a></li>
 								<li><a href="{% url "logout" %}">Выход</a></li>
 								{% else %}
 								<li><a href="{% url "login" %}">Логин</a></li>

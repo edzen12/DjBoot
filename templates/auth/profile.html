@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "headerPages.html" %}
+<section class="page-title" style="padding-top: 200px; padding-bottom: 50px;">
+    <div class="auto-container">
+        <h1>Личный кабинет</h1>
+    </div>
+</section>
+
+<div class="container mt-5 mb-5">
+    
+    <form method=="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div> 
+
+{% endblock content %} 

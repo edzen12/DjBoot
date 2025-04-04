@@ -12,8 +12,8 @@
                 
                     <!-- Info List -->
                     <ul class="info-list">
-                        <li><span>Позвоните нам:</span><a href="tel:{{settings.phone1}}">{{settings.phone1}}</a></li>
-                        <li><span>Напишите нам по эл.почте:</span><a href="mailto:{{settings.email}}"> {{settings.email}}</a></li>
+                        <li><span>Позвоните нам:</span><a href="tel:{% if settings %}{{settings.phone1}}{% endif %}">{% if settings %}{{settings.phone1}}{% endif %}</a></li>
+                        <li><span>Напишите нам по эл.почте:</span><a href="mailto:{% if settings %}{{settings.email}}{% endif %}"> {% if settings %}{{settings.email}}{% endif %}</a></li>
                     </ul>
                     
                 </div>
@@ -23,7 +23,7 @@
                     <!-- Login Nav -->
                     <ul class="login-nav">
                         {% if request.user.is_authenticated %}
-                        <li><a>Привет, {{request.user.username}}</a></li>
+                        <li><a href="{% url "profile" %}">Привет, {{request.user.username}}</a></li>
                         <li><a href="{% url "logout" %}">Выход</a></li>
                         {% else %}
                         <li><a href="{% url "login" %}">Логин</a></li>
